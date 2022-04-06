@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import kotlinx.android.synthetic.main.fragment_first.view.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -34,7 +35,17 @@ class FirstFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_first, container, false)
+        val view:View =inflater.inflate(R.layout.fragment_first, container, false)
+
+        val list_array= arrayListOf<ContentsListModel>(
+            ContentsListModel("a","b",1,"d"),
+            ContentsListModel("a","b",2,"d"),
+            ContentsListModel("a","b",3,"d"),
+            ContentsListModel("a","b",4,"d")
+        )
+        val list_adapter=FirstFragAdapter(requireContext(),list_array)
+        view.listview_first_fragment.adapter=list_adapter
+        return view
     }
 
     companion object {
