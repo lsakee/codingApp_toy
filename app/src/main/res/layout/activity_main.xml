@@ -22,5 +22,12 @@
         app:layout_constraintTop_toBottomOf="@+id/viewpager"
         />
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/gridview"
+        android:layout_marginTop="30dp">
+        <include layout="@layout/bottom"></include>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout >
