@@ -28,8 +28,8 @@ class JoinInfoActivity : AppCompatActivity() {
 
         join_info_login_button.setOnClickListener {
             val nickname=findViewById<EditText>(R.id.join_info_email_area)?.text.toString()
-            val database = Firebase.database
-            val myRef = database.getReference("message").child(Firebase.auth.currentUser!!.uid)
+            val db = Firebase.database
+            val myRef = db.getReference("message").child(Firebase.auth.currentUser!!.uid)
 
             myRef
                 .push()
@@ -43,22 +43,8 @@ class JoinInfoActivity : AppCompatActivity() {
                         Toast.makeText(this,"fail", Toast.LENGTH_LONG).show()
                     }
                 }
+              
     }
 }
 }
 
-
-//
-//myRef.addValueEventListener(object : ValueEventListener {
-//    override fun onDataChange(dataSnapshot: DataSnapshot) {
-//        // This method is called once with the initial value and again
-//        // whenever data at this location is updated.
-//        val value = dataSnapshot.getValue<String>()
-//        Log.d(TAG, "Value is: $value")
-//    }
-//
-//    override fun onCancelled(error: DatabaseError) {
-//        // Failed to read value
-//        Log.w(TAG, "Failed to read value.", error.toException())
-//    }
-//})

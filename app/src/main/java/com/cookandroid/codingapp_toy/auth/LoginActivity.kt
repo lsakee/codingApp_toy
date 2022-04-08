@@ -3,6 +3,7 @@ package com.cookandroid.codingapp_toy.auth
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import com.cookandroid.codingapp_toy.MainActivity
 import com.cookandroid.codingapp_toy.R
@@ -27,6 +28,7 @@ class LoginActivity : AppCompatActivity() {
 
                         val intent=Intent(this,MainActivity::class.java)
                         startActivity(intent)
+
                     }else{
                         Toast.makeText(this,"fail",Toast.LENGTH_LONG).show()
                     }
