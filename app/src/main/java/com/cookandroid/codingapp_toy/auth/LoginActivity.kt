@@ -20,7 +20,7 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        auth = Firebase.auth
+        auth = FirebaseAuth.getInstance()
         login_button.setOnClickListener {
             auth.signInWithEmailAndPassword(email_area.text.toString(),password_area.text.toString())
                 .addOnCompleteListener(this){task->

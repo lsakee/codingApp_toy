@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.viewpager.widget.ViewPager
 import com.cookandroid.codingapp_toy.auth.LoginActivity
+import com.cookandroid.codingapp_toy.auth.MyCominActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -20,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        auth = Firebase.auth
+        auth = FirebaseAuth.getInstance()
         val img = arrayOf(
             R.drawable.ai,
             R.drawable.css,
@@ -70,7 +71,7 @@ class MainActivity : AppCompatActivity() {
                 val intent = Intent(this,LoginActivity::class.java)
                 startActivity(intent)
             }else{
-                val intent = Intent(this,LoginActivity::class.java)
+                val intent = Intent(this,MyCominActivity::class.java)
                 startActivity(intent)
             }
         }

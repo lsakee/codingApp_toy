@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CodingApp_toy">
         <activity
+            android:name=".Fragment.MarketInfo.Write2Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Fragment.MarketInfo.WriteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Fragment.MarketInfo.MainActivity"
+            android:exported="false" />
+        <activity
             android:name=".auth.JoinInfoActivity"
             android:exported="false" />
         <activity

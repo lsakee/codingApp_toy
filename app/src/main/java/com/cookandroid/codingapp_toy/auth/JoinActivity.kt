@@ -25,6 +25,7 @@ class JoinActivity : AppCompatActivity() {
 
                         val intent= Intent(this, JoinInfoActivity::class.java)
                         startActivity(intent)
+
                     }else{
                         Toast.makeText(this,"fail", Toast.LENGTH_LONG).show()
                     }
