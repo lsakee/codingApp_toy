@@ -21,16 +21,14 @@ class MarketInfoActivity : AppCompatActivity() {
         lecture_text.text=intent.getStringExtra("title")
         FirebaseUtils.getUid()
         FirebaseUtils.db
-        val lecture= hashMapOf(
-            "lecture_title" to intent.getStringExtra("title")
-        )
+
         zzim.setOnClickListener{
             header_zzim.text="하트뿅뿅찜되었습니다"
             header_zzim.setTextColor(Color.BLUE)
             FirebaseUtils.db
                 .collection("zzim")
                 .document(FirebaseUtils.getUid())
-                .set(lecture)
+                .update(intent.getStringExtra("title").toString(),true)
                 .addOnSuccessListener {
                     Toast.makeText(this,"성공",Toast.LENGTH_LONG).show()
                 }

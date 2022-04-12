@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.cookandroid.codingapp_toy.MarketInfoActivity
 import com.cookandroid.codingapp_toy.R
+import com.cookandroid.codingapp_toy.Utils.FirebaseUtils
 import kotlinx.android.synthetic.main.fragment_first.view.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -41,19 +42,54 @@ class FirstFragment : Fragment() {
         val view:View =inflater.inflate(R.layout.fragment_first, container, false)
 
         val list_array= arrayListOf<ContentsListModel>(
-            ContentsListModel(R.drawable.list1,"lang1",1,"d"),
-            ContentsListModel(R.drawable.list2,"lang2",1,"d"),
-            ContentsListModel(R.drawable.list3,"lang3",1,"d"),
-            ContentsListModel(R.drawable.list4,"lang4",1,"d"),
-            ContentsListModel(R.drawable.list5,"lang5",1,"d"),
-            ContentsListModel(R.drawable.list6,"lang6",1,"d"),
-            ContentsListModel(R.drawable.list7,"lang7",1,"d"),
-            ContentsListModel(R.drawable.list8,"lang8",1,"d"),
-            ContentsListModel(R.drawable.list9,"lang9",1,"d")
+            ContentsListModel(R.drawable.list1,"Lang1",1,"d"),
+            ContentsListModel(R.drawable.list2,"Lang2",1,"d"),
+            ContentsListModel(R.drawable.list3,"Lang3",1,"d"),
+            ContentsListModel(R.drawable.list4,"Lang4",1,"d"),
+            ContentsListModel(R.drawable.list5,"Lang5",1,"d"),
+            ContentsListModel(R.drawable.list6,"Lang6",1,"d"),
+            ContentsListModel(R.drawable.list7,"Lang7",1,"d"),
+            ContentsListModel(R.drawable.list8,"Lang8",1,"d"),
+            ContentsListModel(R.drawable.list9,"Lang9",1,"d")
         )
         val list_adapter= FirstFragAdapter(requireContext(),list_array)
         view.listview_first_fragment.adapter=list_adapter
 
+
+
+
+        FirebaseUtils.db
+            .collection("zzim")
+            .document(FirebaseUtils.getUid())
+            .get()
+            .addOnSuccessListener { documentSnapshot->
+                if(documentSnapshot.exists() == true){
+                    //Data 필드 있을떼
+                }else{
+                    //없을때
+                    val lecture= hashMapOf(
+                        "Lang1" to "",
+                        "Lang2" to "",
+                        "Lang3" to "",
+                        "Lang4" to "",
+                        "Lang5" to "",
+                        "Lang6" to "",
+                        "Lang7" to "",
+                        "Lang8" to "",
+                        "Lang9" to ""
+
+                    )
+                    FirebaseUtils.db
+                        .collection("zzim")
+                        .document(FirebaseUtils.getUid())
+                        .set(lecture)
+                        .addOnSuccessListener {  }
+                        .addOnFailureListener {  }
+                }
+            }
+            .addOnFailureListener{
+
+            }
         view.listview_first_fragment.setOnItemClickListener{ adapterView,view,i,l->
             val intent= Intent(requireContext(), MarketInfoActivity::class.java)
             intent.putExtra("title",list_array.get(i).title)
