@@ -33,4 +33,16 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"/>
 
+    <Button
+        android:id="@+id/writing_button"
+        android:layout_width="match_parent"
+        android:text="리뷰쓰기"
+        android:textSize="20sp"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/text_input_area"
+        android:background="#92CFBF"
+        android:layout_margin="20dp"
+        android:layout_height="60dp"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
