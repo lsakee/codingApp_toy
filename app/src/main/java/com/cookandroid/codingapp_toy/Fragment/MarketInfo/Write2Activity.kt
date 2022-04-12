@@ -35,7 +35,7 @@ class Write2Activity : AppCompatActivity() {
         //rating버튼눌르면 데베에 리뷰저장
         writing_button.setOnClickListener {
             val form = hashMapOf(
-                "test" to text_input_area.text.toString(),
+                "text" to text_input_area.text.toString(),
                 "writer" to nickname,
                 "rating" to rating_num
             )
