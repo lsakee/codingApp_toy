@@ -1,8 +1,10 @@
 package com.cookandroid.codingapp_toy
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.TypedValue
+import android.widget.Toast
 import com.cookandroid.codingapp_toy.Utils.FirebaseUtils
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -16,8 +18,26 @@ class MarketInfoActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_market_info)
+        lecture_text.text=intent.getStringExtra("title")
         FirebaseUtils.getUid()
         FirebaseUtils.db
+        val lecture= hashMapOf(
+            "lecture_title" to intent.getStringExtra("title")
+        )
+        zzim.setOnClickListener{
+            header_zzim.text="하트뿅뿅찜되었습니다"
+            header_zzim.setTextColor(Color.BLUE)
+            FirebaseUtils.db
+                .collection("zzim")
+                .document(FirebaseUtils.getUid())
+                .set(lecture)
+                .addOnSuccessListener {
+                    Toast.makeText(this,"성공",Toast.LENGTH_LONG).show()
+                }
+                .addOnFailureListener{
+                    Toast.makeText(this,"실패",Toast.LENGTH_LONG).show()
+                }
+        }
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_area,ContentFragment())
             .commit()
