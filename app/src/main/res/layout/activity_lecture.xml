@@ -26,6 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
-        android:id="@+id/list_viewpager"/>
+        android:id="@+id/list_viewpager"
+        android:padding="50dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

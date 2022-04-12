@@ -41,10 +41,15 @@ class FirstFragment : Fragment() {
         val view:View =inflater.inflate(R.layout.fragment_first, container, false)
 
         val list_array= arrayListOf<ContentsListModel>(
-            ContentsListModel("a","b",1,"d"),
-            ContentsListModel("a","b",2,"d"),
-            ContentsListModel("a","b",3,"d"),
-            ContentsListModel("a","b",4,"d")
+            ContentsListModel(R.drawable.list1,"lang1",1,"d"),
+            ContentsListModel(R.drawable.list2,"lang2",1,"d"),
+            ContentsListModel(R.drawable.list3,"lang3",1,"d"),
+            ContentsListModel(R.drawable.list4,"lang4",1,"d"),
+            ContentsListModel(R.drawable.list5,"lang5",1,"d"),
+            ContentsListModel(R.drawable.list6,"lang6",1,"d"),
+            ContentsListModel(R.drawable.list7,"lang7",1,"d"),
+            ContentsListModel(R.drawable.list8,"lang8",1,"d"),
+            ContentsListModel(R.drawable.list9,"lang9",1,"d")
         )
         val list_adapter= FirstFragAdapter(requireContext(),list_array)
         view.listview_first_fragment.adapter=list_adapter
