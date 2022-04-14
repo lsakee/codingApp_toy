@@ -37,18 +37,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/profile_area"/>
-        <Button
-            android:id="@+id/image_download"
-            android:text="image_download"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:ignore="MissingConstraints"/>
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:id="@+id/imageView"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="200dp"
-            android:src="@drawable/bottom_1"/>
+    <Button
+        android:id="@+id/profile_photo_edit"
+        android:text="프로필사진저장"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/logout_button"/>
+<!--        <Button-->
+<!--            android:id="@+id/image_download"-->
+<!--            android:text="image_download"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            tools:ignore="MissingConstraints"/>-->
 
+<!--        <ImageView-->
+<!--            android:layout_width="100dp"-->
+<!--            android:layout_height="100dp"-->
+<!--            android:id="@+id/imageView"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            android:layout_marginTop="200dp"-->
+<!--            android:src="@drawable/bottom_1"/>-->
 </androidx.constraintlayout.widget.ConstraintLayout>

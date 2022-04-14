@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cookandroid.codingapp_toy">
-
+    <!--Adding Read External Storage Permission-->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -15,12 +17,12 @@
         <activity
             android:name=".Fragment.MarketInfo.Write2Activity"
             android:exported="false" />
-        <activity
-            android:name=".Fragment.MarketInfo.WriteActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Fragment.MarketInfo.MainActivity"
-            android:exported="false" />
+<!--        <activity-->
+<!--            android:name=".Fragment.MarketInfo.WriteActivity"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name=".Fragment.MarketInfo.MainActivity"-->
+<!--            android:exported="false" />-->
         <activity
             android:name=".auth.JoinInfoActivity"
             android:exported="false" />
@@ -36,9 +38,9 @@
         <activity
             android:name=".MarketInfoActivity"
             android:exported="false" />
-        <activity
-            android:name="Marketinfo.MarketInfoActivity"
-            android:exported="false" />
+<!--        <activity-->
+<!--            android:name="Marketinfo.MarketInfoActivity"-->
+<!--            android:exported="false" />-->
         <activity
             android:name=".LectureActivity"
             android:exported="false" />
