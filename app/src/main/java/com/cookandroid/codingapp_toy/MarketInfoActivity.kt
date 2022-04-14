@@ -22,7 +22,40 @@ class MarketInfoActivity : AppCompatActivity() {
         FirebaseUtils.getUid()
         FirebaseUtils.db
 
+        //찜 여부 확인
+        FirebaseUtils.db
+            .collection("zzim")
+            .document(FirebaseUtils.getUid())
+            .get()
+            .addOnSuccessListener { documentSnapshot->
+
+                if(documentSnapshot.get(intent.getStringExtra("title").toString()) == true){
+                    header_zzim.text="하트뿅뿅찜되었습니다"
+                    header_zzim.setTextColor(Color.BLUE)
+                }
+
+            }
+            .addOnFailureListener{}
         zzim.setOnClickListener{
+            //이미 찜이 되어있을때
+            if(header_zzim.text.equals("하트뿅뿅찜되었습니다")) {
+
+                header_zzim.text = "하트뿅뿅찜"
+                header_zzim.setTextColor(Color.RED)
+
+                FirebaseUtils.db
+                    .collection("zzim")
+                    .document(FirebaseUtils.getUid())
+                    .update(intent.getStringExtra("title").toString(),"")
+                    .addOnSuccessListener {
+                        Toast.makeText(this,"성공",Toast.LENGTH_LONG).show()
+                    }
+                    .addOnFailureListener{
+                        Toast.makeText(this,"실패",Toast.LENGTH_LONG).show()
+                    }
+            }else {
+                //아닐때
+
             header_zzim.text="하트뿅뿅찜되었습니다"
             header_zzim.setTextColor(Color.BLUE)
             FirebaseUtils.db
@@ -35,6 +68,7 @@ class MarketInfoActivity : AppCompatActivity() {
                 .addOnFailureListener{
                     Toast.makeText(this,"실패",Toast.LENGTH_LONG).show()
                 }
+        }
         }
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_area,ContentFragment())

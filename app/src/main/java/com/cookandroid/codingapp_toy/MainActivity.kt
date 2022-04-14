@@ -4,12 +4,15 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.viewpager.widget.ViewPager
+import com.cookandroid.codingapp_toy.Zzim.ZzimActivity
+import com.cookandroid.codingapp_toy.Zzim.ZzimAdapter
 import com.cookandroid.codingapp_toy.auth.LoginActivity
 import com.cookandroid.codingapp_toy.auth.MyCominActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_market_info.*
 import kotlinx.android.synthetic.main.bottom.*
 
 class MainActivity : AppCompatActivity() {
@@ -65,7 +68,10 @@ class MainActivity : AppCompatActivity() {
         viewpager=findViewById(R.id.viewpager) as ViewPager
         val adapter=ViewPagerAdapter(this)
         viewpager.adapter=adapter
-
+        zzim_icon.setOnClickListener {
+            val intent=Intent(this,ZzimActivity::class.java)
+            startActivity(intent)
+        }
         my_page.setOnClickListener{
             if(auth.currentUser==null){
                 val intent = Intent(this,LoginActivity::class.java)
