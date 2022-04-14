@@ -56,5 +56,13 @@ dependencies {
     implementation 'com.google.firebase:firebase-database-ktx'
     implementation 'com.google.firebase:firebase-firestore:24.1.0'
 
+    implementation platform('com.google.firebase:firebase-bom:29.3.0')
 
+    implementation 'com.google.firebase:firebase-auth-ktx'
+
+     implementation 'com.google.android.gms:play-services-auth:20.1.0'
+
+    implementation 'com.google.firebase:firebase-storage:20.0.1'
+    implementation 'com.github.bumptech.glide:compiler:4.10.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
 }
